@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>cool - Dictionary</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* CSS Variables */
+  :root {
+    --IXoxUe: #636363;
+    --bbQxAb: #474747;
+    --YLNNHc: #1f1f1f;
+    --JKqx2: #1a0dab;
+    --Nsm0ce: #0b57d0;
+    --aYn2S: #f3f5f6;
+    --LI4Bo: Arial, sans-serif;
+    --YfiKf: Arial, sans-serif;
+    --XWv1if: 22px;
+    --qYGXw: 28px;
+    --JT4IPc: 400;
+    --uBdgTe: 18px;
+    --Zf9Znd: 400;
+    --C74x2e: 24px;
+    --gyu5L: 16px;
+    --Yoa6qd: 400;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: var(--YLNNHc);
+    margin: 40px;
+  }
+
+  a { color: var(--JKqx2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Dictionary header */
+  .gJBeNe { display: inline-block; }
+  .d2F2Td { font-family: "Google Sans", Arial, sans-serif; font-size: 22px; line-height: var(--qYGXw); }
+  .aTI8gc { font-weight: 400; }
+  .IFnjPb { font-family: "Google Sans", Arial, sans-serif; font-size: 22px; font-weight: var(--JT4IPc); line-height: var(--qYGXw); }
+  .JGD2rd { display: -webkit-box; overflow: hidden; text-overflow: ellipsis; white-space: normal !important; -webkit-box-orient: vertical; }
+  .mgAbYb { -webkit-line-clamp: 1; }
+  .QkBAO { color: var(--IXoxUe); font-family: var(--YfiKf); font-size: 14px; font-weight: 400; line-height: 20px; margin-top: 4px; width: 100%; }
+  .HJSKzf { font-family: var(--YfiKf); font-weight: 400; color: #3c4043; font-size: 12px; line-height: 16px; }
+  .HJSKzf a { color: #202124; text-decoration: underline; }
+  .FwDEg { padding-left: 16px; }
+  .kkww4d { position: relative; z-index: 1; }
+  .vkc_np { margin-left: -16px; margin-right: -16px; }
+  .PZPZlf { margin-top: 4px; }
+
+  /* Entry header */
+  .mdLi2 { align-items: center; display: flex; padding-bottom: 16px; }
+  .M8kD5b { align-items: center; display: flex; }
+  .kVF6d { word-break: break-word; }
+
+  /* Word title */
+  .RES9jf { color: var(--YLNNHc); }
+  .BJ0kwe { display: block; line-height: 15px; font-size: 28px; height: 20px; }
+  .xWMiCc { vertical-align: top; }
+  .pb3iw { font-family: "Google Sans", Arial, sans-serif; font-weight: var(--Zf9Znd); line-height: 15px; }
+  .t8oeyd { position: relative; top: 0px; vertical-align: super; }
+  .cI1WQb { font-size: 10px; font-weight: bolder; }
+
+  /* Phonetic */
+  .ApHyTb { font-family: var(--YfiKf); font-size: 12px; line-height: 0px; letter-spacing: 0;}
+  .ZYHQ7e { color: var(--IXoxUe); }
+  .Dp60wb { display: block; height: 0px; }
+
+  /* Play button */
+  .J5AxId { margin-right: 8px; display: flex; align-items: center; align-self: center; }
+  .TzAKVc { cursor: pointer; position: relative; }
+  .okWquf { position: relative; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+  .cufAtc { border-radius: 50%; }
+  .cWYJkf {
+    position: absolute; top: 0; left: 0; width: 36px; height: 36px;
+    border-radius: 50%; border-width: 1px; border-style: solid;
+  }
+  .cWYJkf:hover { background-color: #f8f9fa; }
+  .f5YJfe { border-color: var(--Nsm0ce); background-color: var(--Nsm0ce); }
+  .f5YJfe:hover { border-color: #1558d6; background-color: #1558d6; }
+  .mW2wVd {
+    position: absolute; top: -1px; left: -1px;
+    height: 100%; width: 100%; border-radius: inherit;
+    border-width: 1px; border-style: solid; opacity: 0;
+  }
+  .D9010b { border-color: #1558d6; background-color: #1558d6; }
+  .aC35af { height: 22px; margin: 6px; position: absolute; width: 22px; }
+  .lXjEkd { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgdmlld2JveD0iMCAwIDIyIDIyIj4KICA8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjIuNzUgOC4yNSAyLjc1IDEzLjc1IDYuNDE3IDEzLjc1IDExIDE4LjMzMyAxMSAzLjY2NyA2LjQxNyA4LjI1IiAvPgo8L3N2Zz4K"); }
+  .wJgWhc { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgdmlld2JveD0iMCAwIDIyIDIyIj4KICA8cGF0aCBkPSJNMTUuMTI1LDExIEMxNS4xMjUsOS4zNzc1IDE0LjE5LDcuOTg0MTY2NjcgMTIuODMzMzMzMyw3LjMwNTgzMzMzIEwxMi44MzMzMzMzLDE0LjY4NSBDMTQuMTksMTQuMDE1ODMzMyAxNS4xMjUsMTIuNjIyNSAxNS4xMjUsMTEgWiIgZmlsbD0iI0ZGRkZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiAvPgo8L3N2Zz4K"); }
+  .jujppc { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgdmlld2JveD0iMCAwIDIyIDIyIj4KICA8cGF0aCBkPSJNMTIuODMzMzMzMywyLjk2MDgzMzMzIEwxMi44MzMzMzMzLDQuODQ5MTY2NjcgQzE1LjQ4MjUsNS42Mzc1IDE3LjQxNjY2NjcsOC4wOTQxNjY2NyAxNy40MTY2NjY3LDExIEMxNy40MTY2NjY3LDEzLjkwNTgzMzMgMTUuNDgyNSwxNi4zNjI1IDEyLjgzMzMzMzMsMTcuMTUwODMzMyBMMTIuODMzMzMzMywxOS4wMzkxNjY3IEMxNi41MDkxNjY3LDE4LjIwNSAxOS4yNSwxNC45MjMzMzMzIDE5LjI1LDExIEMxOS4yNSw3LjA3NjY2NjY3IDE2LjUwOTE2NjcsMy43OTUgMTIuODMzMzMzMywyLjk2MDgzMzMzIFoiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgLz4KPC9zdmc+Cg=="); }
+
+  /* Learn to pronounce */
+  .K6GhFd { max-height: 0; opacity: 0; visibility: hidden; pointer-events: none; transition: max-height 0.3s, opacity 0.3s; }
+  .b8aKlc { padding: 8px 0 6px; }
+  .S5TwIf { display: inline-block; padding-right: 12px; box-shadow: inset 0 0 0 1px #dadce0; border-radius: 6px; overflow: hidden; vertical-align: top; }
+  .S5TwIf:hover { background-color: var(--aYn2S); }
+  .FamOtd { display: inline-block; vertical-align: middle; }
+  .fe69if { margin-left: 10px; vertical-align: middle; font-size: 14px; color: var(--YLNNHc); }
+  .wA1Bge { display: block; border: 0; }
+  .YQ4gaf { display: block; border: 0; }
+
+  /* Part of speech + inflections */
+  .WblAL { align-items: center; display: flex; }
+  .YrbPuc { color: var(--IXoxUe); font-family: var(--LI4Bo); font-size: 14px; font-weight: 400; line-height: var(--XWv1if); }
+  .a6Xi4e { min-height: 20px; }
+  .LpLPAf { font-style: normal; padding-top: 8px; }
+  .kqEaA { color: var(--IXoxUe); font-family: var(--LI4Bo); font-size: 14px; font-weight: 400; line-height: var(--XWv1if); }
+  .z8gr9e { color: var(--bbQxAb); }
+  .xpdxpnd { overflow: hidden; }
+
+  /* Definitions */
+  .iXud5 { padding-left: 16px; display: block; }
+  .o1hVDf { padding-top: 8px; }
+  .wHYlTd { font-family: var(--LI4Bo); font-size: 14px; line-height: var(--XWv1if); }
+  .Fk8Xcc { line-height: 16px; }
+  .tNxQIb { font-family: Arial, sans-serif; font-size: var(--gyu5L); font-weight: var(--Yoa6qd); line-height: var(--C74x2e); }
+  .AraNOb { text-decoration: underline; }
+  a.rMNQNe { color: inherit; }
+  .XZSRhf { display: list-item; list-style-type: disc; margin-left: 25px; padding-top: 5px; }
+
+  /* Example sentences */
+  .TEKNTc { color: var(--IXoxUe); font-style: italic; margin-top: 2px; }
+
+  /* Origin */
+  .FpiMuf { font-family: "Google Sans", Arial, sans-serif; color: var(--YLNNHc); font-size: var(--uBdgTe); font-weight: 400; line-height: 24px; }
+
+  /* Utility */
+  .di7L2c { word-wrap: break-word; }
+
+  /* Part of speech separator */
+  .pos-section { border-top: 1px solid #dadce0; margin-top: 16px; padding-top: 4px; }
+</style>
+
+</head>
+<body>
+
+<div class="dictionary-card">
+
+  <!-- Header: "Dictionary" title -->
+  <div class="vkc_np kkww4d FwDEg PZPZlf">
+    <div class="cdNhQd">
+      <div class="adDDi">
+        <span class="mgAbYb IFnjPb JGD2rd aTI8gc" aria-level="2" role="heading">
+          <div class="gJBeNe d2F2Td aTI8gc">Dictionary</div>
+        </span>
+        <div class="QkBAO">
+          <div class="HJSKzf" style="padding-top:4px">
+            Definitions from <a href="https://languages.oup.com/google-dictionary-en">Oxford Languages</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entry header: word + phonetic + play button -->
+  <div class="PZPZlf mdLi2">
+    <!-- Word title row: button + word on same line, centered -->
+    <div class="kVF6d">
+      <div class="M8kD5b" style="margin-bottom:0; line-height:normal">
+        <!-- Play button -->
+        <div class="J5AxId TzAKVc" role="button" tabindex="0" aria-label="Listen">
+          <div class="okWquf cufAtc">
+            <audio preload="auto">
+              <source>
+            </audio>
+            <span class="cWYJkf f5YJfe">
+              <div class="mW2wVd D9010b"></div>
+              <div class="aC35af lXjEkd LmiwJe"></div>
+              <div class="aC35af g3ih2c wJgWhc"></div>
+              <div class="aC35af aXV0Gb jujppc"></div>
+            </span>
+          </div>
+        </div>
+        <!-- Word -->
+        <div class="RES9jf xWMiCc pb3iw BJ0kwe" style="margin-top:4px">
+          <span id="freezy-word">cool</span>
+        </div>
+      </div>
+
+      <!-- Phonetic below, indented to align with word -->
+      <div style="padding-left:45px">
+        <span class="ApHyTb ZYHQ7e Dp60wb">/<span id="freezy-pronounce">kuːl</span>/</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ADJECTIVE
+       ═══════════════════════════════════════ -->
+  <div class="vmod">
+    <div class="WblAL">
+      <div>
+        <div class="YrbPuc a6Xi4e"><i><span class="LpLPAf ZYHQ7e" id="freezy-type">adjective</span></i></div>  
+      </div>
+    </div>
+
+    <ol class="iXud5">
+      <li>
+        <!-- 1. of or at a fairly low temperature -->
+        <div class="RES9jf tNxQIb RiJqbb" id="freezy-details1">of or at a fairly low temperature.</div>
+        <div class="ZYHQ7e TEKNTc wHYlTd" id="freezy-details2">"it'll be a cool afternoon"</div>
+      </li>
+    </ol>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
